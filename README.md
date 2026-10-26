@@ -18,6 +18,12 @@
 - 卸载 App 本体和其他 App 的沙盒容器时，需要用户按需授予 macOS **完全磁盘访问权限**；这是系统隐私保护，可随时撤销
 - 构建：Xcode 15+，或本机 Command Line Tools（已用 Swift 6.4 验证）
 
+## 下载
+
+[Latest release](https://github.com/Seiran-Tsurumi/PureUninstaller/releases/latest) — `PureUninstaller-1.0.0.dmg`
+
+> Release 的 DMG 使用 ad-hoc 签名；首次打开如被 Gatekeeper 拦截，右键 App → 打开。源码构建时会优先使用本机 Apple Development 身份。
+
 ## 开箱即用
 
 本机已经生成并安装好可直接运行的版本（`/Applications/净卸.app`）：
@@ -191,7 +197,7 @@ hdiutil create -volname "净卸" -srcfolder build/dmg-stage \
 
 ### 签名与公证（对外分发）
 
-当前构建优先使用本机 Apple Development 证书签名；它不是 Developer ID，也没有公证，只适合本机。管理员移除使用一次性 AppleScript 授权，不安装常驻 helper。
+本机构建优先使用 Apple Development 证书签名；公开 Release 的 DMG 使用 ad-hoc 签名，避免把开发者证书信息带进公开发布物。两者都不是 Developer ID，也没有公证。管理员移除使用一次性 AppleScript 授权，不安装常驻 helper。
 对外分发需要：
 
 ```bash
