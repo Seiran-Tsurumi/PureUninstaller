@@ -1,0 +1,13 @@
+# Build outputs
+.build/
+build/
+dist/
+
+# Local screenshots (may contain personal app lists)
+Docs/
+
+# macOS
+.DS_Store
+
+# Build artifacts
+*.dmg
